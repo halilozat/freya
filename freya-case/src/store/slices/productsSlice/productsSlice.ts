@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {ProductsInitialState} from "@/store/slices/productsSlice/types";
 
 /** thunks */
-import {fetchProducts} from "@/store/slices/productsSlice/thunks";
+import {fetchProductsThunk} from "@/store/slices/productsSlice/thunks";
 
 const initialState: ProductsInitialState = {
     products: [],
@@ -19,14 +19,14 @@ const productsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProducts.pending, (state) => {
+            .addCase(fetchProductsThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(fetchProducts.fulfilled, (state, action) => {
+            .addCase(fetchProductsThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.products = action.payload;
             })
-            .addCase(fetchProducts.rejected, (state, action) => {
+            .addCase(fetchProductsThunk.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message || 'Something went wrong';
             });
