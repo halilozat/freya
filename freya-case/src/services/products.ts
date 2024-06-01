@@ -1,5 +1,5 @@
 /** api */
-import api from "./api.js";
+import api from "@/services/api";
 
 /** types */
 import {Product} from "@/services/types";
