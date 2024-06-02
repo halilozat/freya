@@ -13,7 +13,7 @@ const Tabs = ({ activeTab, setActiveTab }: Props) => {
                 className={`${styles.tab} ${activeTab === 'recommendations' ? styles.active : ''}`}
                 onClick={() => setActiveTab('recommendations')}
             >
-                Oneriler
+                Öneriler
             </button>
             <button
                 className={`${styles.tab} ${activeTab === 'favorites' ? styles.active : ''}`}

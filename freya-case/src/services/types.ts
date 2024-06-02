@@ -7,6 +7,7 @@ export interface Product {
     creationAt: string;
     updatedAt: string;
     category: Category;
+    isFavorited: boolean;
 }
 
 interface Category {

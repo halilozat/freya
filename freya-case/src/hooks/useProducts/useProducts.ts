@@ -3,6 +3,7 @@ import {useAppDispatch, useAppSelector} from "@/store";
 
 /** store */
 import {fetchProductsThunk} from "@/store/slices/productsSlice";
+import {toggleFavorite} from "@/store/slices/productsSlice/productsSlice";
 
 function useProducts() {
     const dispatch = useAppDispatch();
@@ -13,9 +14,14 @@ function useProducts() {
 
     const fetchProducts = () => dispatch(fetchProductsThunk());
 
+    const toggleFavorited = (productId: number) => {
+        dispatch(toggleFavorite(productId))
+    }
+
     return {
         products,
-        fetchProducts
+        fetchProducts,
+        toggleFavorited
     }
 }
 
