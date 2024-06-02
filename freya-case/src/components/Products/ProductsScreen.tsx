@@ -5,9 +5,11 @@ import styles from '../../styles/Products.module.css';
 import Tabs from "@/components/Tabs";
 import Filter from "@/components/Filter";
 import ProductCard from "@/components/Products/ProductCard";
+import { Loader } from "@/components/Loader";
+import { Empty } from "@/components/Empty";
 
 const Products = () => {
-    const { products, fetchProducts } = useProducts()
+    const { products, status, fetchProducts } = useProducts()
 
     const [activeTab, setActiveTab] = useState('recommendations');
     const [sortOption, setSortOption] = useState('');
@@ -19,7 +21,7 @@ const Products = () => {
             return b.price - a.price;
         }
     });
-    console.log(products)
+
     const filteredProducts = activeTab === 'recommendations'
         ? sortedProducts
         : sortedProducts.filter(product => product.isFavorited);
@@ -29,8 +31,17 @@ const Products = () => {
     };
 
     useEffect(() => {
+    }, [products]);
+
+    useEffect(() => {
         fetchProducts()
     }, []);
+
+    if (status === 'loading'){
+        return (
+            <Loader />
+        )
+    }
 
     return (
         <div className={styles.container}>
@@ -40,19 +51,25 @@ const Products = () => {
                     <Filter sortOption={sortOption} setSortOption={setSortOption} />
                 </div>
             </div>
-            <div className={styles.productList}>
-                {filteredProducts.map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        title={product.title}
-                        price={product.price}
-                        image={product.images[0]}
-                        onAddToCart={() => handleAddToCart(product.id)}
-                        fav={product.isFavorited}
-                        id={product.id}
-                    />
-                ))}
-            </div>
+            {
+                !filteredProducts.length
+                    ? <Empty />
+                    : <div className={styles.productList}>
+                        {
+                            filteredProducts.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    title={product.title}
+                                    price={product.price}
+                                    image={product.images[0]}
+                                    onAddToCart={() => handleAddToCart(product.id)}
+                                    fav={product.isFavorited}
+                                    id={product.id}
+                                />
+                            ))
+                        }
+                    </div>
+            }
         </div>
     );
 };

@@ -17,22 +17,29 @@ const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        toggleFavorite: (state, action) => {
+        setProducts: (state, action) => {
             return {
                 ...state,
-                products: state.products.map(item => {
-                    if (item.id === action.payload) {
-                        // images dizisini regex ile filtreleme
-                        const filteredImages = item.images.filter(image => image.replace(/\\\"/g, '\"'));
+                products: action.payload
+            };
+        },
+        toggleFavorite: (state, action) => {
+            const mappedProducts = state.products.map(item => {
+                if (item.id === action.payload) {
+                    return {
+                        ...item,
+                        isFavorited: !item.isFavorited,
+                    };
+                }
+                return item;
+            })
 
-                        return {
-                            ...item,
-                            isFavorited: !item.isFavorited,
-                            images: filteredImages
-                        };
-                    }
-                    return item;
-                })
+            // degisen state'i ls'te de degistir
+            localStorage.setItem('storedProducts', JSON.stringify(mappedProducts))
+
+            return {
+                ...state,
+                products: mappedProducts
             };
         },
     },
@@ -46,7 +53,9 @@ const productsSlice = createSlice({
                 state.status = 'succeeded';
                 state.products = action.payload.map(item => ({
                     ...item,
-                    isFavorited: false
+                    isFavorited: false,
+                    // yanlis gonderilen urlleri duzenleme
+                    images: item.images.map(item => item.replace(/[\[\]"]/g, ''))
                 }));
             })
             .addCase(fetchProductsThunk.rejected, (state, action) => {
@@ -56,5 +65,5 @@ const productsSlice = createSlice({
     },
 });
 
-export const { toggleFavorite } = productsSlice.actions;
+export const { toggleFavorite, setProducts } = productsSlice.actions;
 export default productsSlice.reducer;

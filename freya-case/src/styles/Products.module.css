@@ -20,7 +20,11 @@
     cursor: pointer;
     border: none;
     background: none;
-    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    font-size: 18px;
 }
 
 .tab:not(:last-child) {
@@ -28,7 +32,8 @@
 }
 
 .active {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #E14621;
+    color: #E14621;
 }
 
 .filter {
@@ -37,6 +42,7 @@
 }
 
 .productList {
+    width: 100%;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(5, 1fr); /* Büyük ekranlar için 5 kolon */
@@ -49,7 +55,7 @@
 
 @media (max-width: 1200px) {
     .productList {
-        grid-template-columns: repeat(3, 1fr); /* Küçük ekranlar için 3 kolon */
+        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlar için 2 kolon */
     }
 }
 

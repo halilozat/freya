@@ -15,9 +15,9 @@ const Filter = ({ sortOption, setSortOption }: Props) => {
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
             >
-                <option>Filtrele</option>
-                <option value="ascending">Artan</option>
-                <option value="descending">Azalan</option>
+                <option className={styles.option} disabled>Filtrele</option>
+                <option className={styles.option} value="ascending">Artan</option>
+                <option className={styles.option} value="descending">Azalan</option>
             </select>
         </div>
     );

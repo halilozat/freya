@@ -4,13 +4,13 @@
 }
 
 .chat {
-    flex: 3;
+    flex: 4;
     background-color: #f0f0f0;
     overflow-y: auto;
 }
 
 .products {
-    flex: 7;
+    flex: 8;
     padding: 20px;
     background-color: #fff;
     overflow-y: auto;

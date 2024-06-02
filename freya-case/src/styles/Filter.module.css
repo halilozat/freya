@@ -6,3 +6,14 @@
     Padding: 10px;
     Gap: 30px;
 }
+
+.filter option {
+    width: 160px;
+    top: 66px;
+    left: 1260px;
+    padding: 10px;
+    gap: 30px;
+    border-radius: 10px;
+    border: 1px solid #D6D6D6;
+    background: white;
+}
