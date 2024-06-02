@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center; /* Sekmeleri ortalamak için */
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* Filtreyi sağda konumlandırmak için */
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+
+.tab:not(:last-child) {
+    margin-right: 20px;
+}
+
+.active {
+    border-bottom: 2px solid #000;
+}
+
+.filter {
+    position: absolute;
+    right: 0; /* Filtreyi sağa hizalamak için */
+}
+
+.productList {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5, 1fr); /* Büyük ekranlar için 5 kolon */
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+@media (max-width: 1200px) {
+    .productList {
+        grid-template-columns: repeat(3, 1fr); /* Küçük ekranlar için 3 kolon */
+    }
+}
+
+@media (max-width: 600px) {
+    .productList {
+        grid-template-columns: 1fr; /* Telefon ekranları için 1 kolon */
+    }
+}
