@@ -1,0 +1,11 @@
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptyText {
+    font-size: 20px;
+    margin-top: 40px;
+}
