@@ -1,19 +1,18 @@
-'use client'
-import { useEffect } from "react";
-import styles from "./page.module.css";
-import useProducts from "@/hooks/useProducts/useProducts";
+import styles from '../styles/Home.module.css';
+import ChatScreen from "@/components/Chat/ChatScreen";
+import ProductScreen from "@/components/Products/ProductsScreen";
 
-export default function Home() {
-    const { fetchProducts, products } = useProducts()
+const Home = () => {
+    return (
+        <main className={styles.container}>
+            <div className={styles.chat}>
+                <ChatScreen />
+            </div>
+            <div className={styles.products}>
+                <ProductScreen />
+            </div>
+        </main>
+    );
+};
 
-    useEffect(() => {
-        fetchProducts()
-    }, []);
-
-
-  return (
-      <div className={styles.main}>
-          {products.length}
-      </div>
-  );
-}
+export default Home;
