@@ -5,6 +5,12 @@
     text-align: center;
     height: 100%;
     box-sizing: border-box;
+    position: relative; /* Heart icon için gerekli */
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image {
@@ -60,4 +66,18 @@
     line-height: 20px;
     text-align: center;
     box-shadow: 0 0 4px 0 #E1462126;
+}
+
+.heartIcon {
+    position: absolute;
+    right: 10px;
+    display: none; /* Başlangıçta gizli */
+    font-size: 24px;
+    color: red;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card:hover .heartIcon {
+    display: block; /* Hover olduğunda göster */
 }

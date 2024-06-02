@@ -16,7 +16,27 @@ const initialState: ProductsInitialState = {
 const productsSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {},
+    reducers: {
+        toggleFavorite: (state, action) => {
+            return {
+                ...state,
+                products: state.products.map(item => {
+                    if (item.id === action.payload) {
+                        // images dizisini regex ile filtreleme
+                        const filteredImages = item.images.filter(image => image.replace(/\\\"/g, '\"'));
+
+                        return {
+                            ...item,
+                            isFavorited: !item.isFavorited,
+                            images: filteredImages
+                        };
+                    }
+                    return item;
+                })
+            };
+        },
+    },
+
     extraReducers: (builder) => {
         builder
             .addCase(fetchProductsThunk.pending, (state) => {
@@ -24,7 +44,10 @@ const productsSlice = createSlice({
             })
             .addCase(fetchProductsThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.products = action.payload;
+                state.products = action.payload.map(item => ({
+                    ...item,
+                    isFavorited: false
+                }));
             })
             .addCase(fetchProductsThunk.rejected, (state, action) => {
                 state.status = 'failed';
@@ -33,4 +56,5 @@ const productsSlice = createSlice({
     },
 });
 
+export const { toggleFavorite } = productsSlice.actions;
 export default productsSlice.reducer;

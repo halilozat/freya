@@ -19,10 +19,10 @@ const Products = () => {
             return b.price - a.price;
         }
     });
-
+    console.log(products)
     const filteredProducts = activeTab === 'recommendations'
-        ? sortedProducts.filter(product => product.category.name === 'Oneriler')
-        : sortedProducts.filter(product => product.category.name === 'Favoriler');
+        ? sortedProducts
+        : sortedProducts.filter(product => product.isFavorited);
 
     const handleAddToCart = (productId: number) => {
         // Sepete ekle işlevi burada tanımlanacak
@@ -41,13 +41,15 @@ const Products = () => {
                 </div>
             </div>
             <div className={styles.productList}>
-                {products.map((product) => (
+                {filteredProducts.map((product) => (
                     <ProductCard
                         key={product.id}
                         title={product.title}
                         price={product.price}
                         image={product.images[0]}
                         onAddToCart={() => handleAddToCart(product.id)}
+                        fav={product.isFavorited}
+                        id={product.id}
                     />
                 ))}
             </div>
