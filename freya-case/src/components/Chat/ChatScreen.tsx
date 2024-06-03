@@ -1,8 +1,13 @@
 'use client'
+/** dependencies */
 import React, { useState, useEffect } from 'react';
-import styles from '../../styles/Chat.module.css';
-import Submit from '../../assets/Submit.svg'
 import Image from "next/image";
+
+/** styles */
+import styles from '@/styles/Chat.module.css';
+
+/** assets */
+import Submit from '@/assets/Submit.svg'
 
 const Chat = () => {
     const [messages, setMessages] = useState<{ message: string; sender: string; time: string }[]>([]);

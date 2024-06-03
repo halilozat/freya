@@ -4,7 +4,6 @@ import {useAppDispatch, useAppSelector} from "@/store";
 /** store */
 import {fetchProductsThunk} from "@/store/slices/productsSlice";
 import {setProducts, toggleFavorite} from "@/store/slices/productsSlice/productsSlice";
-import {getProducts} from "@/services/products";
 
 function useProducts() {
     const dispatch = useAppDispatch();

@@ -1,8 +1,15 @@
+/** dependencies */
 import React from 'react';
-import styles from '../../styles/ProductCard.module.css';
-import HeartIcon from '../../assets/HeartIcon.svg'
-import EmptyHeartIcon from '../../assets/EmptyHeartIcon.svg'
 import Image from 'next/image';
+
+/** styles */
+import styles from '@/styles/ProductCard.module.css';
+
+/** assets */
+import HeartIcon from '@/assets/HeartIcon.svg'
+import EmptyHeartIcon from '@/assets/EmptyHeartIcon.svg'
+
+/** hooks */
 import useProducts from "@/hooks/useProducts/useProducts";
 
 interface ProductCardProps {

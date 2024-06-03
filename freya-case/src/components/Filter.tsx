@@ -1,4 +1,7 @@
+/** dependencies */
 import {Dispatch, SetStateAction} from "react";
+
+/** components */
 import CustomSelect from "@/components/CustomSelect";
 
 interface Props {

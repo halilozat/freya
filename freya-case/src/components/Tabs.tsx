@@ -1,5 +1,8 @@
-import {Dispatch, SetStateAction, useState} from 'react';
-import styles from '../styles/Products.module.css';
+/** dependencies */
+import {Dispatch, SetStateAction} from 'react';
+
+/** styles */
+import styles from '@/styles/Products.module.css';
 
 interface Props {
     activeTab: string

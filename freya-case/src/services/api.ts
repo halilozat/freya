@@ -1,3 +1,4 @@
+/** dependencies */
 import axios from "axios";
 
 // Sunucudan yanit almak icin beklenecek max zaman

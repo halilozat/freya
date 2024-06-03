@@ -1,7 +1,14 @@
 "use client"
+/** dependencies */
 import {useEffect, useState} from 'react';
+
+/** hooks */
 import useProducts from "@/hooks/useProducts/useProducts";
-import styles from '../../styles/Products.module.css';
+
+/** styles */
+import styles from '@/styles/Products.module.css';
+
+/** components */
 import Tabs from "@/components/Tabs";
 import Filter from "@/components/Filter";
 import ProductCard from "@/components/Products/ProductCard";
@@ -20,7 +27,9 @@ const Products = () => {
         } else if (sortOption === 'descending') {
             return b.price - a.price;
         }else {
-            return activeTab === 'recommendations' ? Number(b.creationAt) - Number(a.creationAt) : b.createdTime - a.createdTime
+            return activeTab === 'recommendations'
+                ? Number(b.creationAt) - Number(a.creationAt)
+                : b.createdTime - a.createdTime
         }
     });
 

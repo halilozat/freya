@@ -1,4 +1,7 @@
-import styles from '../styles/Home.module.css';
+/** styles */
+import styles from '@/styles/Home.module.css';
+
+/** components */
 import ChatScreen from "@/components/Chat/ChatScreen";
 import ProductScreen from "@/components/Products/ProductsScreen";
 

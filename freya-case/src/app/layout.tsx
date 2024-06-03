@@ -1,3 +1,4 @@
+/** dependencies */
 import { Inter } from "next/font/google";
 import React from "react";
 import {Providers} from "@/store/provider";

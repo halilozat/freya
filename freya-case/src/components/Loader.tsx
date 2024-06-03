@@ -1,4 +1,5 @@
-import styles from '../styles/Loader.module.css'
+/** styles */
+import styles from '@/styles/Loader.module.css'
 
 interface Props {
     text?: string

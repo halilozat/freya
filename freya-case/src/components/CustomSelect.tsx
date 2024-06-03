@@ -1,5 +1,8 @@
+/** dependencies */
 import React, {useState, useEffect, useRef, Dispatch, SetStateAction} from 'react';
-import styles from '../styles/CustomSelect.module.css';
+
+/** styles */
+import styles from '@/styles/CustomSelect.module.css';
 
 interface Option {
     value: string;

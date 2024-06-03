@@ -1,4 +1,7 @@
+/** dependencies */
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+/** services */
 import {getProducts} from "@/services/products";
 
 export const fetchProductsThunk = createAsyncThunk('products/fetchProducts', async () => {

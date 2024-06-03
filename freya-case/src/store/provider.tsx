@@ -1,5 +1,6 @@
 'use client'
 
+/** dependencies */
 import {Provider} from "react-redux";
 import {store} from "@/store/store";
 import React from "react";

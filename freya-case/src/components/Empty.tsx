@@ -1,4 +1,5 @@
-import styles from '../styles/Empty.module.css'
+/** styles */
+import styles from '@/styles/Empty.module.css'
 
 export function Empty() {
 
