@@ -1,5 +1,5 @@
 import {Dispatch, SetStateAction} from "react";
-import styles from '../styles/Filter.module.css'
+import CustomSelect from "@/components/CustomSelect";
 
 interface Props {
     sortOption: string
@@ -7,19 +7,18 @@ interface Props {
 }
 
 const Filter = ({ sortOption, setSortOption }: Props) => {
+    const options = [
+        { value: '', label: 'Filtrele' },
+        { value: 'ascending', label: 'Artan' },
+        { value: 'descending', label: 'Azalan' },
+    ];
+
     return (
-        <div>
-            <select
-                className={styles.filter}
-                id="filter"
-                value={sortOption}
-                onChange={(e) => setSortOption(e.target.value)}
-            >
-                <option className={styles.option} disabled>Filtrele</option>
-                <option className={styles.option} value="ascending">Artan</option>
-                <option className={styles.option} value="descending">Azalan</option>
-            </select>
-        </div>
+        <CustomSelect
+            options={options}
+            selectedOption={sortOption}
+            onOptionSelect={setSortOption}
+        />
     );
 };
 
