@@ -4,7 +4,6 @@ import HeartIcon from '../../assets/HeartIcon.svg'
 import EmptyHeartIcon from '../../assets/EmptyHeartIcon.svg'
 import Image from 'next/image';
 import useProducts from "@/hooks/useProducts/useProducts";
-import defaultImage from '../../assets/default.jpeg'
 
 interface ProductCardProps {
     title: string;
