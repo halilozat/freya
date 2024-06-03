@@ -93,4 +93,9 @@
         text-align: left;
         font-size: 14px;
     }
+
+    .active {
+        border-bottom: 2px solid #E14621;
+        color: #E14621;
+    }
 }
