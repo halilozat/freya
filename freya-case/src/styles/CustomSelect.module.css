@@ -1,0 +1,66 @@
+/* customSelect.module.css */
+.custom-select-container {
+    width: 111px;
+    height: 40px;
+}
+
+.custom-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #D6D6D6;
+    border-radius: 10px;
+    background: #FFFFFF;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+    font-family: Inter;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-align: left;
+}
+
+.custom-select-icon {
+    margin-left: 10px;
+}
+
+.custom-select-dropdown {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Dropdown'u seçimin altına yerleştirir */
+    border: 1px solid #D6D6D6;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 10px;
+    z-index: 1;
+    left: -61px;
+    max-height: 150px; /* Yüksekliği sınırlayarak kaydırma eklemek için */
+    overflow-y: auto; /* Taşma durumunda dikey kaydırma ekleyin */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Dropdown'a gölge ekler */
+}
+
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    user-select: none;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-align: left;
+}
+
+.custom-option:hover {
+    background-color: #f1f1f1;
+}
+
+.active .custom-select-dropdown {
+    display: block;
+}
