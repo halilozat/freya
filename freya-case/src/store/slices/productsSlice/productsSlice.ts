@@ -29,6 +29,7 @@ const productsSlice = createSlice({
                     return {
                         ...item,
                         isFavorited: !item.isFavorited,
+                        createdTime: Date.now(),
                     };
                 }
                 return item;
@@ -54,8 +55,10 @@ const productsSlice = createSlice({
                 state.products = action.payload.map(item => ({
                     ...item,
                     isFavorited: false,
+                    // @ts-ignore
+                    createdTime: Date.now(item.creationAt),
                     // yanlis gonderilen urlleri duzenleme
-                    images: item.images.map(item => item.replace(/[\[\]"]/g, ''))
+                    images: item.images.map(item => item.replace(/[\[\]"]/g, '')),
                 }));
             })
             .addCase(fetchProductsThunk.rejected, (state, action) => {

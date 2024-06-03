@@ -8,6 +8,7 @@ export interface Product {
     updatedAt: string;
     category: Category;
     isFavorited: boolean;
+    createdTime: number;
 }
 
 interface Category {

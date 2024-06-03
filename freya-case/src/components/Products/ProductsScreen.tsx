@@ -17,8 +17,10 @@ const Products = () => {
     const sortedProducts = [...products].sort((a, b) => {
         if (sortOption === 'ascending') {
             return a.price - b.price;
-        } else {
+        } else if (sortOption === 'descending') {
             return b.price - a.price;
+        }else {
+            return activeTab === 'recommendations' ? Number(b.creationAt) - Number(a.creationAt) : b.createdTime - a.createdTime
         }
     });
 
@@ -30,8 +32,7 @@ const Products = () => {
         // Sepete ekle işlevi burada tanımlanacak
     };
 
-    useEffect(() => {
-    }, [products]);
+
 
     useEffect(() => {
         fetchProducts()

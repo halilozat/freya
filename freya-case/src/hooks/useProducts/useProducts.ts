@@ -19,7 +19,7 @@ function useProducts() {
 
     const fetchProducts = () => {
         const storedProducts = localStorage.getItem('storedProducts')
-        console.log(storedProducts)
+
         if (storedProducts && JSON.parse(storedProducts).length){
             dispatch(setProducts(JSON.parse(storedProducts)))
         }else {
