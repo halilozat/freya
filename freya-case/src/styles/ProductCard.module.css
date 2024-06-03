@@ -7,10 +7,16 @@
     box-sizing: border-box;
     position: relative; /* Heart icon için gerekli */
     transition: box-shadow 0.3s;
+    overflow: auto;
+}
+
+.card::-webkit-scrollbar {
+    display: none; /* Chrome, Safari ve diğer Webkit tarayıcılar için */
 }
 
 .card:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 .image {

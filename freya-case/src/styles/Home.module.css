@@ -15,3 +15,17 @@
     background-color: #fff;
     overflow-y: auto;
 }
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .chat {
+        flex: 12;
+    }
+
+    .products {
+        flex: 12;
+    }
+}

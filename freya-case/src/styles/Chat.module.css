@@ -39,6 +39,7 @@
     border-radius: 10px;
     max-width: 70%;
     word-break: break-word;
+    box-shadow: 0 0 4px 0 #0000001A;
 }
 
 .receivedMessage {
@@ -49,6 +50,7 @@
     border-radius: 10px;
     max-width: 70%;
     word-break: break-word;
+    box-shadow: 0 0 4px 0 #0000001A;
 }
 
 .time {
@@ -76,10 +78,6 @@
     height:40px;
     width: 40px;
     gap: 10px;
-}
-
-.sendButton:hover {
-    background-color: #0056b3;
 }
 
 .footer {
@@ -130,13 +128,18 @@
         font-size: 10px;
     }
 
-
     .footer {
         padding: 5px;
     }
 
     .charCount {
         padding: 5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .messageInput {
+        width: 85%;
     }
 }
 
@@ -151,5 +154,9 @@
 
     .time {
         font-size: 10px;
+    }
+
+    .footer {
+        padding: 10px;
     }
 }
